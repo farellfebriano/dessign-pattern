@@ -65,14 +65,27 @@ const shipping = new Shipping();
 const fedex = new Fedex();
 const usps = new USPS();
 const ups = new UPS();
-const pkg = { from: "Alabama", to: "Georgia", weight: 1.56, id: "WE334Rt442" };
 
+// PACKAGE 1
+const pkg1 = { from: "Alabama", to: "Georgia", weight: 1.56, id: "WE334Rt442" };
 shipping.setStrategy(fedex);
-shipping.countPrice(pkg);
-
+shipping.countPrice(pkg1);
 shipping.setStrategy(usps);
-shipping.countPrice(pkg);
-
+shipping.countPrice(pkg1);
 shipping.setStrategy(ups);
-shipping.countPrice(pkg);
+shipping.countPrice(pkg1);
+
+// PACKAGE 2
+const pkg2 = {
+  from: "FRANCE",
+  to: "INDONESIA",
+  weight: 33.43,
+  id: "WE334Rt443",
+};
+shipping.setStrategy(fedex);
+shipping.countPrice(pkg2);
+shipping.setStrategy(usps);
+shipping.countPrice(pkg2);
+shipping.setStrategy(ups);
+shipping.countPrice(pkg2);
 console.log(shipping.allPriceList);
